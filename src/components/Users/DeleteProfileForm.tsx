@@ -20,9 +20,9 @@ const DeleteProfileForm: React.FC = () => {
     const handleSubmit = async () => {
         try {
             await deleteProfile({ current_password: currentPassword }).unwrap();
-            toast("Profile supprimé avec succès", { type: 'success', position: "top-center", autoClose: 2000 });
+            toast("Profil supprimé avec succès", { type: 'success', position: "top-center", autoClose: 2000 });
         } catch (error) {
-            toast("Une erreur est survenu lors de la suppression du profile", { type: 'error', position: "top-center", autoClose: 2000 });
+            toast("Une erreur est survenu lors de la suppression du profil", { type: 'error', position: "top-center", autoClose: 2000 });
         }
     }
 
@@ -33,10 +33,10 @@ const DeleteProfileForm: React.FC = () => {
                     Changer mot de passe
                 </Typography>
                 <Typography variant="body1" component="p" textAlign="center">
-                    Attention ! la suppression de votre profile est irréversible, vous perdrez toutes vos données
+                    Attention ! la suppression de votre profil est irréversible, vous perdrez toutes vos données
                 </Typography>
                 <Typography variant="body1" component="p" textAlign="center">
-                    Pour confirmer la suppression de votre profile, veuillez entrer votre mot de passe actuel
+                    Pour confirmer la suppression de votre profil, veuillez entrer votre mot de passe actuel
                 </Typography>
                 <TextField
                     variant="outlined"
@@ -65,7 +65,7 @@ const DeleteProfileForm: React.FC = () => {
                     }}
                 />
                 <Button variant="outlined" fullWidth color='error' onClick={handleSubmit}>
-                    Supprimer le profile
+                    Supprimer le profil
                 </Button>
             </Stack>
         </Box>

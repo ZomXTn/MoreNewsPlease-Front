@@ -78,7 +78,7 @@ const Topbar: React.FC<TopbarProps> = ({ open, handleDrawerOpen }) => {
                                 border: 2,
                                 borderColor: grey[400]
                             })
-                        }}>{firsLetters(user?.first_name, user?.last_name)}</Avatar>
+                        }}>{firsLetters(user?.first_name || "", user?.last_name || "")}</Avatar>
                     </IconButton>
                 </Box>
             </Box>

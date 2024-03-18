@@ -45,7 +45,7 @@ const Profile: React.FC = () => {
     return (
         <Container maxWidth="xl">
             <Paper>
-                <Typography variant="h4" component="h1" padding={4}>{`Profile de ${user?.user_name}`}</Typography>
+                <Typography variant="h4" component="h1" padding={4}>{`Profil de ${user?.user_name}`}</Typography>
                 <Divider />
                 <Grid container>
                     <Grid item xs={3} sx={{ minHeight: "70vh" }}>
@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
                             <Divider />
                             <Tab label="Changer mot de passe" onClick={(e) => handleTabChange(e, 4)} {...a11yProps(2)} />
                             <Divider />
-                            <Tab label="Supprimer le profile" onClick={(e) => handleTabChange(e, 6)} {...a11yProps(2)} />
+                            <Tab label="Supprimer le profil" onClick={(e) => handleTabChange(e, 6)} {...a11yProps(2)} />
                         </Tabs>
                         <Divider />
                     </Grid>

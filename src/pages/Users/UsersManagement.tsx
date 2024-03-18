@@ -29,7 +29,7 @@ const UsersManagement: React.FC = () => {
     const { column, type, setOrderBy } = useOrderingParams()
     const { data: users, isLoading, isFetching, isSuccess } = useGetUsersQuery(params.toString(), { refetchOnMountOrArgChange: true })
     const { page, totalPages, goToPage } = usePagination({ totalItems: users?.count || 0 })
-    const canDisplay = isSuccess && !isLoading && !isFetching
+    const canDisplay = isSuccess && !isLoading && users
     const [sortColumn, setSortColumn] = useState<string>(column);
     const [sortDirection, setSortDirection] = useState<"asc" | "desc">(type);
     const navigate = useNavigate();

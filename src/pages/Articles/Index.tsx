@@ -16,7 +16,7 @@ const Index: React.FC<{ favorite?: boolean }> = ({ favorite }) => {
     const author = params.get("author") || "";
     const { data: articles, isLoading, isFetching, isSuccess } = useGetArticlesQuery(params.toString(), { refetchOnMountOrArgChange: true });
     const { page, totalPages, goToPage } = usePagination({ totalItems: articles?.count || 0 });
-    const canDisplay = isSuccess && !isLoading
+    const canDisplay = isSuccess && !isLoading && articles
     return (
         <Container maxWidth="xl">
             <Paper>

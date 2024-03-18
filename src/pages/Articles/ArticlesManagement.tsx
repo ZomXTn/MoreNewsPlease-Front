@@ -21,7 +21,7 @@ const ArticlesManagement: React.FC = () => {
     const { column, setOrderBy, type } = useOrderingParams()
     const { data: articles, isLoading, isFetching, isSuccess } = useGetArticlesQuery(queries.toString(), { refetchOnMountOrArgChange: true })
     const { page, totalPages, goToPage } = usePagination({ totalItems: articles?.count || 0 })
-    const canDisplay = isSuccess && !isLoading && !isFetching
+    const canDisplay = isSuccess && !isLoading && articles
     const [sortColumn, setSortColumn] = useState<string>(column);
     const [sortDirection, setSortDirection] = useState<"asc" | "desc">(type);
     const navigate = useNavigate();

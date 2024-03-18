@@ -25,18 +25,17 @@ enum UserFormType {
 
 const UserForm: React.FC<IIUserFormProps> = ({ user, onSubmit, mode }) => {
     const validationSchema = Yup.object({
-        user_name: Yup.string().required('user_name is required'),
-        email: Yup.string().email('Enter a valid email').required('Email is required'),
-        first_name: Yup.string().required('First name is required'),
-        last_name: Yup.string().required('Last name is required'),
+        user_name: Yup.string().required('Un nom d\'utilisateur est requis'),
+        email: Yup.string().email('Enter a valid email').required('Une adresse mail est requise'),
+        first_name: Yup.string().required('Un prénom est requis'),
+        last_name: Yup.string(),
         phone_number: Yup.string()
             .matches(
                 /^0[1-9](?:[ _.-]?[0-9]{2}){4}$/,
-                'Phone number is not valid'
-            )
-            .required('Phone number is required'),
-        adress: Yup.string().required('adress is required'),
-        algorithm: Yup.string().required('algorithm is required')
+                'Veuillez entrez un numéro de téléphone français valide'
+            ),
+        adress: Yup.string(),
+        algorithm: Yup.string()
     });
     const initialValues: IUser = {
         user_name: '',
@@ -60,7 +59,7 @@ const UserForm: React.FC<IIUserFormProps> = ({ user, onSubmit, mode }) => {
         <Grid container justifyContent="space-between" alignItems="center" rowGap={2} columnGap={1} alignContent="center">
             <Grid item xs={12}>
                 <TextField disabled={mode == UserFormType.CONSULT}
-
+                    required
                     fullWidth
                     id="user_name"
                     label="Nom d'utilisateur"
@@ -84,7 +83,7 @@ const UserForm: React.FC<IIUserFormProps> = ({ user, onSubmit, mode }) => {
                 !hide && (
                     <Grid item xs={12}>
                         <TextField disabled={mode == UserFormType.CONSULT}
-
+                            required
                             fullWidth
                             id="email"
                             label="Adresse Email"
@@ -108,6 +107,7 @@ const UserForm: React.FC<IIUserFormProps> = ({ user, onSubmit, mode }) => {
             <Grid item xs={5}>
                 <TextField disabled={mode == UserFormType.CONSULT}
                     fullWidth
+                    required
                     name="first_name"
                     label="Prénom"
                     type="text"

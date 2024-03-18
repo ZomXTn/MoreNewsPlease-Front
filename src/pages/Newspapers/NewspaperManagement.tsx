@@ -19,7 +19,7 @@ const NewspaperManagement: React.FC = () => {
     const { column, type, setOrderBy } = useOrderingParams()
     const { data: newspapers, isLoading, isFetching, isSuccess } = useGetNewspapersQuery(params.toString(), { refetchOnMountOrArgChange: true })
     const { page, totalPages, goToPage } = usePagination({ totalItems: newspapers?.results.length || 0 })
-    const canDisplay = isSuccess && !isLoading && !isFetching
+    const canDisplay = isSuccess && !isLoading && newspapers
     const [sortColumn, setSortColumn] = useState<string>(column);
     const [sortDirection, setSortDirection] = useState<"asc" | "desc">(type);
     const navigate = useNavigate();
